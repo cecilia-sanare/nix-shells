@@ -6,7 +6,6 @@
   outputs = { self, nixpkgs, ... }:
     let
       inherit (nixpkgs) lib legacyPackages;
-      inherit (lib) mkMerge;
       forAllSystems = lib.genAttrs lib.systems.flakeExposed;
 
       mkShell = name: forAllSystems(system:
@@ -20,8 +19,9 @@
         });
     in
     {
-      rust = mkShell "rust";
       bevy = mkShell "bevy";
+      bun = mkShell "bun";
+      rust = mkShell "rust";
       devShells = mkShell "bevy";
     };
 }
