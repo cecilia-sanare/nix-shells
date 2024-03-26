@@ -10,7 +10,6 @@ pkgs.mkShell {
   buildInputs = with pkgs; [
     nixpkgs-fmt
     nixd
-    bun
     nodejs
   ];
 }
